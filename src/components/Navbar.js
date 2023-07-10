@@ -65,9 +65,17 @@ const Navbar = ({
           <button onClick={generateRandomArray} disabled={sorting}>
             New Array
           </button>
-          <button onClick={handleSort} disabled={sorting || completed}>
-            Sort
-          </button>
+          <div className="tooltip">
+            <button onClick={handleSort} disabled={sorting || completed}>
+              Sort
+            </button>
+            {sorting && (
+              <span className="tooltiptext">
+                <i className="fas fa-exclamation-circle"></i>
+                Sort button is disabled as sorting is running already
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </nav>
